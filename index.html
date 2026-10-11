@@ -4,6 +4,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>const API_BASE_URL = "https://threed-stadium-booking.onrender.com";</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Football Stadium — Feel Closer to the Game</title>
@@ -6010,7 +6011,7 @@
       async function verifyPaymentOnBackend(info, rzpResponse, customer) {
         toast("Verifying payment & generating ticket...", 3000);
         try {
-          const res = await fetch("/api/verify-payment", {
+          const res = await fetch("https://threed-stadium-booking.onrender.com/api/verify-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -6060,7 +6061,7 @@
 
         let orderData = null;
         try {
-          const res = await fetch("/api/create-order", {
+          const res = await fetch("https://threed-stadium-booking.onrender.com/api/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -6182,7 +6183,7 @@
         const demoPayId = "pay_demo_" + Math.floor(100000 + Math.random() * 900000);
 
         try {
-          const res = await fetch("/api/verify-payment", {
+          const res = await fetch("https://threed-stadium-booking.onrender.com/api/verify-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -7305,7 +7306,7 @@
       /* Initialize booked seats from MongoDB backend */
       async function fetchAndApplyBookedSeats() {
         try {
-          const res = await fetch("/api/booked-seats");
+          const res = await fetch("https://threed-stadium-booking.onrender.com/api/booked-seats");
           if (!res.ok) return;
           const data = await res.json();
           if (data && Array.isArray(data.bookedSeats)) {
